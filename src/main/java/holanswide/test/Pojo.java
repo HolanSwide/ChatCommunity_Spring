@@ -1,7 +1,8 @@
 package holanswide.test;
 
+import holanswide.pojo.Post;
 import holanswide.pojo.User;
-import holanswide.utils.Bean;
+import holanswide.utils.BeanFactory;
 import org.junit.Test;
 
 /**
@@ -13,6 +14,8 @@ import org.junit.Test;
 public class Pojo {
     @Test
     public void userTest() {
-        System.out.println(Bean.getAc().getBean("user", User.class).toString());
+        System.out.println(BeanFactory.getAc().getBean("user", User.class).toString());
     }
+    @Test
+    public void postTest() { System.out.println(BeanFactory.getAc().getBean("post", Post.class).toString()); }
 }

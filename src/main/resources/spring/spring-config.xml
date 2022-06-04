@@ -35,7 +35,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!--        绑定配置文件-->
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:mybatis/userMapper.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>
     </bean>
 <!--扫描mapper接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer" >
@@ -49,6 +49,9 @@
 
     <!--    BEAN-->
     <bean id="userMapperImp" class="holanswide.utils.mappers.UserMapperImp">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
+    </bean>
+    <bean id="postMapperImp" class="holanswide.utils.mappers.PostMapperImp">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
     </bean>
 

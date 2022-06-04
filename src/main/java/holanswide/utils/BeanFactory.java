@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date ：2022/6/4 14:53
  */
 
-public class Bean {
+public class BeanFactory {
     private static final String url = "spring/spring-config.xml";
     public static ApplicationContext getAc() {
         ApplicationContext ac =null;

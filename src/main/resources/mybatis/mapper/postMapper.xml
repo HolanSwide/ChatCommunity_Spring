@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="holanswide.utils.mappers.PostMapper">
+    <insert id="addPost">
+        insert into post(pid, uid, theme, body, time, `like`, comment, share) VALUES
+                (#{pid}, #{uid}, #{theme}, #{body}, #{time}, #{like}, #{comment}, #{share})
+    </insert>
+    <update id="updPost">
+        update post set theme = #{theme},
+                        body = #{body},
+                        time = #{time}
+        where pid=#{pid}
+    </update>
+    <delete id="delPost">
+        delete from post where pid = #{pid}
+    </delete>
+
+    <select id="queryPost" resultType="holanswide.pojo.Post">
+        select * from post
+    </select>
+    <select id="queryPostByPid" resultType="holanswide.pojo.Post">
+        select * from post where pid=#{pid}
+    </select>
+    <select id="queryPostByTheme" resultType="holanswide.pojo.Post">
+        select * from post where locate(#{theme},theme)
+    </select>
+    <select id="queryPostByBody" resultType="holanswide.pojo.Post">
+        select * from post where locate(#{body},body)
+    </select>
+    <select id="queryPostByTime" resultType="holanswide.pojo.Post">
+        select * from post where `time` &lt; #{time}
+    </select>
+
+
+</mapper>

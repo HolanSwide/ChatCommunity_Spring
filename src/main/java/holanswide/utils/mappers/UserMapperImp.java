@@ -1,12 +1,7 @@
 package holanswide.utils.mappers;
 
 import holanswide.pojo.User;
-import holanswide.utils.mappers.UserMapper;
-import org.aspectj.lang.annotation.AdviceName;
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,15 +49,17 @@ public class UserMapperImp implements UserMapper {
     @Transactional(propagation = Propagation.REQUIRED)
     public void addUser(User user) {
         session.getMapper(UserMapper.class).addUser(user);
-        System.out.println("> Add User : "+session.getMapper(UserMapper.class).queryUserByUsername(user.getUsername()).toString());;
+        System.out.println("> Add User : "+session.getMapper(UserMapper.class).queryUserByUsername(user.getUsername()).toString());
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void delUser(User user) {
         session.getMapper(UserMapper.class).delUser(user);
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void updUser(User user) {
         session.getMapper(UserMapper.class).updUser(user);
         System.out.println("> Upd User : "+session.getMapper(UserMapper.class).queryUserByUsername(user.getUsername()).toString());

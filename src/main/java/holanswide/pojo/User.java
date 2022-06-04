@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class User {
     @Value(value = "0")
-    int uid;
+    private int uid;
     @Value(value = "username")
-    String username;
+    private String username;
     @Value(value = "password")
-    String password;
+    private String password;
     @Value(value = "0")
-    int type;
+    private int type;
 
     @Override
     public String toString() {
