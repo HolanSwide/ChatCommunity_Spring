@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class User {
+public class User implements Behavior {
     @Value(value = "0")
     private int uid;
     @Value(value = "username")
@@ -19,6 +19,26 @@ public class User {
     private String password;
     @Value(value = "0")
     private int type;
+
+    @Override
+    public void like(Post post) {
+        // 用户点赞
+    }
+
+    @Override
+    public void comment(Post post) {
+        // 用户评论
+    }
+
+    @Override
+    public void share(Post post) {
+        // 用户分享
+    }
+
+    @Override
+    public void report(Post post) {
+        // 用户举办
+    }
 
     @Override
     public String toString() {
@@ -69,4 +89,5 @@ public class User {
     public void setType(int type) {
         this.type = type;
     }
+
 }
